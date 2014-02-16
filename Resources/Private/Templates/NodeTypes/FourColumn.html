@@ -1,0 +1,18 @@
+<div{attributes -> f:format.raw()}>
+	<div class="box">
+        <f:render partial="Headline" arguments="{_all}" />
+		<div class="col-sm-3 text-center">
+			{column0 -> f:format.raw()}
+		</div>
+		<div class="col-sm-3 text-center">
+			{column1 -> f:format.raw()}
+		</div>
+		<div class="col-sm-3 text-center">
+			{column2 -> f:format.raw()}
+		</div>
+        <div class="col-sm-3 text-center">
+            {column3 -> f:format.raw()}
+        </div>
+        <div class="clearfix"></div>
+	</div>
+</div>

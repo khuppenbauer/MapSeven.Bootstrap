@@ -1,0 +1,51 @@
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<f:section name="metadata">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		</f:section>
+
+		<f:section name="stylesheets">
+			<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap.min.css', package: 'MapSeven.Bootstrap')}" media="all" />
+			<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/business-casual.css', package: 'MapSeven.Bootstrap')}" media="all" />
+            <style>
+                body {
+                    background: url('resource://MapSeven.Bootstrap/Public/Images/bg.jpg') no-repeat center center fixed;
+                }
+            </style>
+		</f:section>
+
+	</head>
+
+	<body>
+        <f:section name="body">
+            <div class="brand">MapSeven</div>
+            <div class="address-bar">TYPO3 | TYPO3Flow | TYPO3Neos</div>
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    {parts.mainMenu -> f:format.raw()}
+                </div>
+            </nav>
+
+            <div class="container">
+                {content.main -> f:format.raw()}
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <p>Copyright &copy; Company 2013</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </f:section>
+
+		<f:section name="bodyScripts">
+			<script src="{f:uri.resource(path: 'JavaScript/jquery-1.10.2.js', package: 'MapSeven.Bootstrap')}"></script>
+			<script src="{f:uri.resource(path: 'JavaScript/bootstrap.min.js', package: 'MapSeven.Bootstrap')}"></script>
+		</f:section>
+    </body>
+</html>

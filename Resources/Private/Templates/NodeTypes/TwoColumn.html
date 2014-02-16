@@ -1,0 +1,68 @@
+<div{attributes -> f:format.raw()}>
+    <div class="box">
+        <f:render partial="Headline" arguments="{_all}" />
+        <f:if condition="{0: layout} == {0: '8-4'}">
+            <f:then>
+                <div class="col-md-8">
+            </f:then>
+            <f:else>
+                <f:if condition="{0: layout} == {0: '4-8'}">
+                    <f:then>
+                        <div class="col-md-4">
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{0: layout} == {0: '7-5'}">
+                            <f:then>
+                                <div class="col-md-7">
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{0: layout} == {0: '5-7'}">
+                                    <f:then>
+                                        <div class="col-md-5">
+                                    </f:then>
+                                    <f:else>
+                                        <div class="col-md-6">
+                                    </f:else>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+        {column0 -> f:format.raw()}
+        </div>
+        <f:if condition="{0: layout} == {0: '8-4'}">
+            <f:then>
+                <div class="col-md-4">
+            </f:then>
+            <f:else>
+                <f:if condition="{0: layout} == {0: '4-8'}">
+                    <f:then>
+                        <div class="col-md-8">
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{0: layout} == {0: '7-5'}">
+                            <f:then>
+                                <div class="col-md-5">
+                            </f:then>
+                            <f:else>
+                                <f:if condition="{0: layout} == {0: '5-7'}">
+                                    <f:then>
+                                        <div class="col-md-7">
+                                    </f:then>
+                                    <f:else>
+                                        <div class="col-md-6">
+                                    </f:else>
+                                </f:if>
+                            </f:else>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+        {column1 -> f:format.raw()}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

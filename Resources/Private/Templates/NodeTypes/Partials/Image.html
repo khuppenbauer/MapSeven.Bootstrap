@@ -1,0 +1,23 @@
+{namespace media=TYPO3\Media\ViewHelpers}
+<f:if condition="{image}">
+    <f:then>
+        <f:if condition="{link}">
+            <f:then>
+                <a href="{link}"><media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
+}" allowUpScaling="{allowUpScaling}" class="img-responsive img-border img-left"/></a>
+            </f:then>
+            <f:else>
+                <media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
+}" allowUpScaling="{allowUpScaling}" class="img-responsive img-border img-left"/>
+            </f:else>
+        </f:if>
+        <hr class="visible-xs">
+    </f:then>
+    <f:else>
+        <f:security.ifAccess resource="TYPO3_Neos_Backend_GeneralAccess">
+            <f:if condition="{node.context.workspace.name} != 'live'">
+                <img src="{f:uri.resource(package: 'TYPO3.Neos', path: 'Images/dummy-image.png')}" title="Dummy image" alt="Dummy image" class="neos-handle" />
+            </f:if>
+        </f:security.ifAccess>
+    </f:else>
+</f:if>

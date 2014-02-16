@@ -1,0 +1,235 @@
+##
+# Adjust the "Row" node type:
+# Disable some of the layout options, override labels and set the default layout
+#
+'MapSeven.Bootstrap:Column':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Row (full content width)'
+    group: 'structure'
+    inspector:
+      groups:
+        'headline':
+          label: Headline
+          position: 5
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'layout':
+      defaultValue: '1'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              '100': ~
+              '12':
+                label: '100%'
+    'headline':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Headline'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'headline'
+
+##
+# Adjust the "TwoColumn" node type:
+# Disable some of the layout options, override labels and set the default layout
+#
+'MapSeven.Bootstrap:TwoColumn':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Two Column Content'
+    group: 'structure'
+    inspector:
+      groups:
+        'headline':
+          label: Headline
+          position: 5
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'layout':
+      defaultValue: '6-6'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              '50-50': ~
+              '75-25': ~
+              '25-75': ~
+              '66-33': ~
+              '33-66': ~
+              '6-6':
+                label: '50% / 50%'
+              '8-4':
+                label: '75% / 25%'
+              '4-8':
+                label: '25% / 75%'
+              '7-5':
+                label: '66% / 33%'
+              '5-7':
+                label: '33% / 66%'
+    'headline':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Headline'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'headline'
+
+##
+# Adjust the "ThreeColumn" node type:
+# Disable some of the layout options, override labels and set the default layout
+#
+'MapSeven.Bootstrap:ThreeColumn':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Three Column Content'
+    group: 'structure'
+    inspector:
+      groups:
+        'headline':
+          label: Headline
+          position: 5
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+    column2:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'layout':
+      defaultValue: '4-4-4'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              '33-33-33': ~
+              '50-25-25': ~
+              '25-50-25': ~
+              '25-25-50': ~
+              '4-4-4':
+                label: '33% / 33% / 33%'
+              '6-3-3':
+                label: '50% / 25% / 25%'
+              '3-6-3':
+                label: '25% / 50% / 25%'
+              '3-3-6':
+                label: '25% / 25% / 50%'
+    'headline':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Headline'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'headline'
+
+##
+# Adjust the "FourColumn" node type:
+# Disable some of the layout options, override labels and set the default layout
+#
+'MapSeven.Bootstrap:FourColumn':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Four Column Content'
+    group: 'structure'
+    inspector:
+      groups:
+        'headline':
+          label: Headline
+          position: 5
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+    column2:
+      type: 'TYPO3.Neos:ContentCollection'
+    column3:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'layout':
+      defaultValue: '3-3-3-3'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              '25-25-25-25': ~
+              '3-3-3-3':
+                label: '25% / 25% / 25% / 25%'
+    'headline':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Headline'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'headline'
+
+##
+# A "Carousel" content element that renders "Image" child nodes into a JavaScript based slideshow
+#
+'MapSeven.Bootstrap:Carousel':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Carousel'
+    group: 'structure'
+    icon: 'icon-picture'
+    inlineEditable: TRUE
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+
+'TYPO3.Neos.NodeTypes:Image':
+  properties:
+    alignment:
+      type: string
+      defaultValue: 'Left'
+      ui:
+        label: 'Alignment'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'image'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Left'
+            values:
+              '':
+                label:
+              center:
+                label:
+              left:
+                label: 'Left'
+              right:
+                label:
+
+'MapSeven.Bootstrap:Divider':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    label: 'Divider'
+    group: 'general'
+
+'TYPO3.Neos.NodeTypes:Headline':
+  ui:
+    group: '_disabled'
+
+'TYPO3.Neos.NodeTypes:TwoColumn':
+  ui:
+    group: '_disabled'
+
+'TYPO3.Neos.NodeTypes:ThreeColumn':
+  ui:
+    group: '_disabled'
+
+'TYPO3.Neos.NodeTypes:FourColumn':
+  ui:
+    group: '_disabled'

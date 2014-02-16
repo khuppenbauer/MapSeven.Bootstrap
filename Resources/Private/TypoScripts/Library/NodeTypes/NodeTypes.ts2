@@ -1,0 +1,82 @@
+prototype(MapSeven.Bootstrap:Column) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+	}
+}
+
+prototype(MapSeven.Bootstrap:TwoColumn) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+	}
+	column1 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column1'
+	}
+}
+
+prototype(MapSeven.Bootstrap:ThreeColumn) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+	}
+	column1 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column1'
+	}
+	column2 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column2'
+	}
+}
+
+prototype(MapSeven.Bootstrap:FourColumn) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+	}
+	column1 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column1'
+	}
+	column2 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column2'
+	}
+	column3 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column3'
+	}
+}
+
+##
+# "Carousel" element
+#
+prototype(MapSeven.Bootstrap:Carousel) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+		iterationName = 'carouselItemsIteration'
+		attributes.class = 'carousel-inner'
+	}
+
+	carouselItemArray = ${q(node).children('column0').children('[instanceof TYPO3.Neos.NodeTypes:Image]')}
+
+	// Enhance image prototype for the carousel
+	prototype(TYPO3.Neos.NodeTypes:Image) {
+		// Render images in the carousel with a special template.
+		templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/CarouselItem.html'
+
+		attributes.class = ${'item' + (carouselItemsIteration.isFirst ? ' active' : '')}
+
+		// We want to use the item iterator in the template so we have to store it in ts.
+		iteration = ${carouselItemsIteration}
+	}
+}
+
+prototype(TYPO3.Neos.NodeTypes:TextWithImage) {
+	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/TextWithImage.html'
+}
+
+prototype(TYPO3.Neos.NodeTypes:Image) {
+	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/Image.html'
+}
+
+prototype(TYPO3.Neos.NodeTypes:Headline) {
+	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/Headline.html'
+}
