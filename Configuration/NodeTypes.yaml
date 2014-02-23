@@ -211,6 +211,12 @@
                 label: 'Left'
               right:
                 label:
+    clickEnlarge:
+      type: boolean
+      ui:
+        label: 'ClickEnlarge'
+        inspector:
+          group: 'image'
 
 'MapSeven.Bootstrap:Divider':
   superTypes: ['TYPO3.Neos:Content']

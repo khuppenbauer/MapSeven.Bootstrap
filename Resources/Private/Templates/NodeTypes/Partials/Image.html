@@ -1,16 +1,13 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace media=TYPO3\Media\ViewHelpers}
 <f:if condition="{image}">
     <f:then>
-        <f:if condition="{link}">
-            <f:then>
-                <a href="{link}"><media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
-}" allowUpScaling="{allowUpScaling}" class="img-responsive img-border img-left"/></a>
-            </f:then>
-            <f:else>
-                <media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
+        <f:if condition="{link}"><a href="{link}"></f:if>
+        <f:if condition="{clickEnlarge}"><a href="{f:uri.resource(resource: image.resource)}" data-toggle="lightbox" data-title="{title}" data-footer="{f:if(condition: hasCaption, then: caption, else: '')}"></f:if>
+        <media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
 }" allowUpScaling="{allowUpScaling}" class="img-responsive img-border img-left"/>
-            </f:else>
-        </f:if>
+        <f:if condition="{link}"></a></f:if>
+        <f:if condition="{clickEnlarge}"></a></f:if>
         <hr class="visible-xs">
     </f:then>
     <f:else>
@@ -20,4 +17,7 @@
             </f:if>
         </f:security.ifAccess>
     </f:else>
+</f:if>
+<f:if condition="{hasCaption}">
+    {neos:contentElement.editable(property: 'caption', node: node)}
 </f:if>

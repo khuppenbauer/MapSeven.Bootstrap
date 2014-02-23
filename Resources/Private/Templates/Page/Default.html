@@ -1,5 +1,5 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace ts=TYPO3\TypoScript\ViewHelpers}
-{namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,8 +8,9 @@
 		</f:section>
 
 		<f:section name="stylesheets">
-			<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap.min.css', package: 'MapSeven.Bootstrap')}" media="all" />
-			<link rel="stylesheet" href="{f:uri.resource(path: 'Styles/business-casual.css', package: 'MapSeven.Bootstrap')}" media="all" />
+            <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap-business-casual.css', package: 'MapSeven.Bootstrap')}" media="all" />
+            <link href="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
             <style>
                 body {
                     background: url('resource://MapSeven.Bootstrap/Public/Images/bg.jpg') no-repeat center center fixed;
@@ -21,7 +22,8 @@
 
 	<body>
         <f:section name="body">
-            <div class="brand">MapSeven</div>
+            <div class="brand"><neos:link.node node="/sites/bootstrap">MapSeven</neos:link.node></div>
+
             <div class="address-bar">TYPO3 | TYPO3Flow | TYPO3Neos</div>
             <nav class="navbar navbar-default" role="navigation">
                 <div class="container">
@@ -45,7 +47,34 @@
 
 		<f:section name="bodyScripts">
 			<script src="{f:uri.resource(path: 'JavaScript/jquery-1.10.2.js', package: 'MapSeven.Bootstrap')}"></script>
-			<script src="{f:uri.resource(path: 'JavaScript/bootstrap.min.js', package: 'MapSeven.Bootstrap')}"></script>
+            <script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function ($) {
+
+                    // delegate calls to data-toggle="lightbox"
+                    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+                        event.preventDefault();
+                        return $(this).ekkoLightbox({
+                            onShown: function() {
+                                if (window.console) {
+                                    return console.log('Checking our the events huh?');
+                                }
+                            }
+                        });
+                    });
+
+                    //Programatically call
+                    $('#open-image').click(function (e) {
+                        e.preventDefault();
+                        $(this).ekkoLightbox();
+                    });
+                    $('#open-youtube').click(function (e) {
+                        e.preventDefault();
+                        $(this).ekkoLightbox();
+                    });
+                });
+            </script>
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		</f:section>
     </body>
 </html>
