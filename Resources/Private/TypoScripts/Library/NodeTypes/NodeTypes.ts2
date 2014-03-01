@@ -1,3 +1,14 @@
+prototype(TYPO3.Neos:ContentCollection) {
+	iterationName = 'sectionIteration'
+}
+
+prototype(MapSeven.Bootstrap:Section) {
+	attributes.class = ${'background-image' + (sectionIteration.isFirst ? ' header' : '')}
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+	}
+}
+
 prototype(MapSeven.Bootstrap:Column) {
 	attributes.class = 'row'
 	column0 = TYPO3.Neos:ContentCollection {

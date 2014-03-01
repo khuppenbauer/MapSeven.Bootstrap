@@ -3,7 +3,7 @@
 <f:if condition="{image}">
     <f:then>
         <f:if condition="{link}"><a href="{link}"></f:if>
-        <f:if condition="{clickEnlarge}"><a href="{f:uri.resource(resource: image.resource)}" data-toggle="lightbox" data-title="{title}" data-footer="{f:if(condition: hasCaption, then: caption, else: '')}"></f:if>
+        <f:if condition="{clickEnlarge}"><a href="{media:uri.image(image:image)}" data-toggle="lightbox" data-title="{title}" data-footer="{f:if(condition: hasCaption, then: caption, else: '')}"></f:if>
         <media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
 }" allowUpScaling="{allowUpScaling}" class="img-responsive img-border img-left"/>
         <f:if condition="{link}"></a></f:if>

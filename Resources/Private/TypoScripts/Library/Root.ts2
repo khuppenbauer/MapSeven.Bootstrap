@@ -9,7 +9,7 @@ page = Page {
 		stylesheets {
 			site = TypoScript:Template {
 				templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/Page/Default.html'
-				sectionName = 'stylesheets'
+				sectionName = 'stylesheets.bootstrap-business-casual'
 			}
 		}
 
@@ -41,7 +41,27 @@ page = Page {
 
 		javascripts.site = TypoScript:Template {
 			templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/Page/Default.html'
-			sectionName = 'bodyScripts'
+			sectionName = 'bodyScripts.bootstrap-business-casual'
 		}
+	}
+}
+
+backgroundImage = TypoScript:Template {
+	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/BackgroundImage.html'
+	image = TypoScript:Value
+	image.value = ${q(node).property('backgroundImage') != null && q(node).property('backgroundImage') != ''  ? q(node).property('backgroundImage') : q(node).parents('[backgroundImage]').first().property('backgroundImage')}
+}
+
+default < page
+default.head.stylesheets {
+	backgroundImage < backgroundImage
+}
+
+landingPage < page
+landingPage {
+	head.stylesheets.site.sectionName = 'stylesheets.bootstrap-stylish-portfolio'
+	body {
+		parts.mainMenu.templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/LandingPageMainMenu.html'
+		javascripts.site.sectionName = 'bodyScripts.bootstrap-stylish-portfolio'
 	}
 }

@@ -2,6 +2,77 @@
 # Adjust the "Row" node type:
 # Disable some of the layout options, override labels and set the default layout
 #
+'TYPO3.Neos.NodeTypes:Page':
+  ui:
+    inspector:
+      groups:
+        background:
+          label: 'Background'
+          position: 900
+  properties:
+    'layout':
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              'default':
+                label: 'Default'
+              'landingPage':
+                label: 'Landing page'
+    'subpageLayout':
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              'default':
+                label: 'Default'
+              'landingPage':
+                label: 'Landing page'
+    'backgroundImage':
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+
+'MapSeven.Bootstrap:Section':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Section (for Landing page)'
+    group: 'structure'
+    inspector:
+      groups:
+        'background':
+          label: Background
+          position: 900
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'layout': []
+    'color':
+      type: string
+      ui:
+        label: 'Color'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+    'backgroundImage':
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+    'backgroundColor':
+      type: string
+      ui:
+        label: 'Background Color'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+
 'MapSeven.Bootstrap:Column':
   superTypes: ['TYPO3.Neos.NodeTypes:Column']
   ui:
@@ -16,15 +87,7 @@
     column0:
       type: 'TYPO3.Neos:ContentCollection'
   properties:
-    'layout':
-      defaultValue: '1'
-      ui:
-        inspector:
-          editorOptions:
-            values:
-              '100': ~
-              '12':
-                label: '100%'
+    'layout': []
     'headline':
       type: string
       defaultValue: ''
@@ -157,15 +220,7 @@
     column3:
       type: 'TYPO3.Neos:ContentCollection'
   properties:
-    'layout':
-      defaultValue: '3-3-3-3'
-      ui:
-        inspector:
-          editorOptions:
-            values:
-              '25-25-25-25': ~
-              '3-3-3-3':
-                label: '25% / 25% / 25% / 25%'
+    'layout': []
     'headline':
       type: string
       defaultValue: ''
@@ -202,15 +257,7 @@
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             placeholder: 'Left'
-            values:
-              '':
-                label:
-              center:
-                label:
-              left:
-                label: 'Left'
-              right:
-                label:
+            values: []
     clickEnlarge:
       type: boolean
       ui:

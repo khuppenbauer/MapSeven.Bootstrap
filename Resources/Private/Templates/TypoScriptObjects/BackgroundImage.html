@@ -1,0 +1,8 @@
+{namespace media=TYPO3\Media\ViewHelpers}
+<f:if condition="{image}">
+    <style>
+        body {
+            background: #ffffff url({media:uri.image(image:image)}) no-repeat center fixed;
+        }
+    </style>
+</f:if>

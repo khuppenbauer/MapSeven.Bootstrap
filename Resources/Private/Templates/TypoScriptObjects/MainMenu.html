@@ -1,5 +1,12 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
-<f:render section="itemList" arguments="{items: items, site: site}" />
+<div class="brand"><neos:link.node node="/sites/bootstrap">MapSeven</neos:link.node></div>
+
+<div class="address-bar">TYPO3 | TYPO3Flow | TYPO3Neos</div>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <f:render section="itemList" arguments="{items: items, site: site}" />
+   </div>
+</nav>
 
 <f:section name="itemList">
     <div class="navbar-header">
