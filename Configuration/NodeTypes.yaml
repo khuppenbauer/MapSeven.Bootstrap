@@ -240,9 +240,48 @@
     group: 'structure'
     icon: 'icon-picture'
     inlineEditable: TRUE
+    inspector:
+      groups:
+        'headline':
+          label: Headline
+          position: 5
   childNodes:
     column0:
       type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'headline':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Headline'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'headline'
+
+'MapSeven.Bootstrap:Gallery':
+  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  ui:
+    label: 'Gallery'
+    group: 'structure'
+    icon: 'icon-picture'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        'headline':
+          label: Headline
+          position: 5
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    'headline':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Headline'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'headline'
 
 'TYPO3.Neos.NodeTypes:Image':
   properties:

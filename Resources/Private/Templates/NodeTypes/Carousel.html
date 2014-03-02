@@ -2,6 +2,7 @@
 {namespace ts=TYPO3\TypoScript\ViewHelpers}
 <div{attributes -> f:format.raw()}>
     <div class="box">
+        <f:render partial="Headline" arguments="{_all}" />
         <div class="col-lg-12 text-center">
             <div class="carousel slide" id="{node.identifier}">
                 <!-- Indicators -->

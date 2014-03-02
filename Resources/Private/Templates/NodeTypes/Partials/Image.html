@@ -1,11 +1,12 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace media=TYPO3\Media\ViewHelpers}
+{namespace bootstrap=MapSeven\Bootstrap\ViewHelpers}
 <f:if condition="{image}">
     <f:then>
         <f:if condition="{link}"><a href="{link}"></f:if>
-        <f:if condition="{clickEnlarge}"><a href="{media:uri.image(image:image)}" data-toggle="lightbox" data-title="{title}" data-footer="{f:if(condition: hasCaption, then: caption, else: '')}"></f:if>
+        <f:if condition="{clickEnlarge}"><a href="{bootstrap:uri.image(image:image, width:lightboxWidth, height:lightboxHeight)}" data-toggle="lightbox" data-title="{title}" data-footer="{f:if(condition: hasCaption, then: caption, else: '')}"></f:if>
         <media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping
-}" allowUpScaling="{allowUpScaling}" class="img-responsive img-border img-left"/>
+}" allowUpScaling="{allowUpScaling}" class="img-responsive img-border {imgClass}"/>
         <f:if condition="{link}"></a></f:if>
         <f:if condition="{clickEnlarge}"></a></f:if>
         <hr class="visible-xs">

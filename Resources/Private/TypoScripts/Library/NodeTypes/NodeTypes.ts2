@@ -55,9 +55,6 @@ prototype(MapSeven.Bootstrap:FourColumn) {
 	}
 }
 
-##
-# "Carousel" element
-#
 prototype(MapSeven.Bootstrap:Carousel) {
 	attributes.class = 'row'
 	column0 = TYPO3.Neos:ContentCollection {
@@ -80,12 +77,30 @@ prototype(MapSeven.Bootstrap:Carousel) {
 	}
 }
 
+prototype(MapSeven.Bootstrap:Gallery) {
+	attributes.class = 'row'
+	column0 = TYPO3.Neos:ContentCollection {
+		nodePath = 'column0'
+		iterationName = 'galleryItemsIteration'
+	}
+
+	// Enhance image prototype for the carousel
+	prototype(TYPO3.Neos.NodeTypes:Image) {
+		templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/GalleryItem.html'
+		iteration = ${galleryItemsIteration}
+	}
+}
+
 prototype(TYPO3.Neos.NodeTypes:TextWithImage) {
 	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/TextWithImage.html'
+	imgClass = 'img-left'
 }
 
 prototype(TYPO3.Neos.NodeTypes:Image) {
 	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/Image.html'
+	imgClass = 'img-full'
+	lightboxWidth = 640
+	lightboxHeight = 480
 }
 
 prototype(TYPO3.Neos.NodeTypes:Headline) {

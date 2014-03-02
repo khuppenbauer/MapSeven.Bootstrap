@@ -36,16 +36,13 @@
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3 text-center">
                             <ul class="list-inline">
-                                <li><a href="https://twitter.com/khuppenbauer"><i class="fa fa-twitter fa-3x"></i></a></li>
-                                <li><a href="https://github.com/khuppenbauer"><i class="fa fa-github fa-3x"></i></a></li>
-                                <li><a href="http://www.flickr.com/photos/khuppenbauer"><i class="fa fa-flickr fa-3x"></i></a></li>
-                                <li><a href="https://www.facebook.com/kerstin.huppenbauer"><i class="fa fa-facebook fa-3x"></i></a></li>
+                                <li><a href="https://twitter.com/khuppenbauer"><i class="fa fa-twitter fa-2x"></i></a></li>
+                                <li><a href="https://github.com/khuppenbauer"><i class="fa fa-github fa-2x"></i></a></li>
+                                <li><a href="http://www.flickr.com/photos/khuppenbauer"><i class="fa fa-flickr fa-2x"></i></a></li>
+                                <li><a href="https://www.facebook.com/kerstin.huppenbauer"><i class="fa fa-facebook fa-2x"></i></a></li>
 
                                 </li>
                             </ul>
-                            <div class="top-scroll">
-                                <a href="#top"><i class="fa fa-circle-arrow-up scroll fa-4x"></i></a>
-                            </div>
                             <hr>
                             <ul class="list-inline">
                                 <li><neos:link.node node="/sites/bootstrap">Home</neos:link.node></li>
@@ -66,39 +63,7 @@
             </f:security.ifAccess>
         </f:section>
 
-		<f:section name="bodyScripts.bootstrap-business-casual">
-			<script src="{f:uri.resource(path: 'JavaScript/jquery-1.10.2.js', package: 'MapSeven.Bootstrap')}"></script>
-            <script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function ($) {
-
-                    // delegate calls to data-toggle="lightbox"
-                    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-                        event.preventDefault();
-                        return $(this).ekkoLightbox({
-                            onShown: function() {
-                                if (window.console) {
-                                    return console.log('Checking our the events huh?');
-                                }
-                            }
-                        });
-                    });
-
-                    //Programatically call
-                    $('#open-image').click(function (e) {
-                        e.preventDefault();
-                        $(this).ekkoLightbox();
-                    });
-                    $('#open-youtube').click(function (e) {
-                        e.preventDefault();
-                        $(this).ekkoLightbox();
-                    });
-                });
-            </script>
-            <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-		</f:section>
-
-        <f:section name="bodyScripts.bootstrap-stylish-portfolio">
+        <f:section name="bodyScripts">
             <script src="{f:uri.resource(path: 'JavaScript/jquery-1.10.2.js', package: 'MapSeven.Bootstrap')}"></script>
             <script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
             <script type="text/javascript">

@@ -1,0 +1,14 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace media=TYPO3\Media\ViewHelpers}
+{namespace bootstrap=MapSeven\Bootstrap\ViewHelpers}
+<f:if condition="{image}">
+    <f:then>
+        <a href="{bootstrap:uri.image(image:image, width:lightboxWidth, height:lightboxHeight)}" data-toggle="lightbox" data-gallery="{node.parent.identifier}" data-title="{title}" class="col-sm-2" style="padding-bottom:30px;">
+            <media:image image="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" class="img-responsive" />
+        </a>
+    </f:then>
+    <f:else>
+        <img src="{f:uri.resource(package: 'TYPO3.Neos', path: 'Images/dummy-image.png')}" title="Dummy image" alt="Dummy image" />
+    </f:else>
+</f:if>
+{f:if(condition: iteration.isLast, then: '<div class="clearfix"></div>')}
