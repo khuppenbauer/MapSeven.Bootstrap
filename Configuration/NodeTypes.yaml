@@ -271,6 +271,17 @@
     label: 'Divider'
     group: 'general'
 
+'TYPO3.Neos.NodeTypes:Form':
+  properties:
+    formIdentifier:
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              '': ~
+              'Contact':
+                label: 'Contact form'
+
 'TYPO3.Neos.NodeTypes:Headline':
   ui:
     group: '_disabled'
