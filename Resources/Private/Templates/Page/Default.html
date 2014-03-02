@@ -58,6 +58,12 @@
                     </div>
                 </div>
             </footer>
+            <f:security.ifAccess resource="TYPO3_Neos_Backend_GeneralAccess">
+                <f:then></f:then>
+                <f:else>
+                    {content.piwik -> f:format.raw()}
+                </f:else>
+            </f:security.ifAccess>
         </f:section>
 
 		<f:section name="bodyScripts.bootstrap-business-casual">

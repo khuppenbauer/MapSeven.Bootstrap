@@ -52,6 +52,8 @@ backgroundImage = TypoScript:Template {
 	image.value = ${q(node).property('backgroundImage') != null && q(node).property('backgroundImage') != ''  ? q(node).property('backgroundImage') : q(node).parents('[backgroundImage]').first().property('backgroundImage')}
 }
 
+include: resource://MapSeven.Piwik/Private/TypoScripts/Library/Piwik.ts2
+
 default < page
 default.head.stylesheets {
 	backgroundImage < backgroundImage
