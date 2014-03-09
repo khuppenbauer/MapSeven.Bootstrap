@@ -1,0 +1,51 @@
+{namespace media=TYPO3\Media\ViewHelpers}
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:if condition="{backgroundImage}">
+    <f:then>
+        <f:if condition="{isFirst}">
+            <f:then>
+                <section id="{node.identifier}" class="intro" style="background-image: url({media:uri.image(image:backgroundImage)});{f:if(condition:color, then: ' color:{color};')}">
+                    <div class="intro-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <h1 class="brand-heading"><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
+                                    <p class="intro-text"><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></p>
+                                    <div class="page-scroll">
+                                        <a class="btn btn-circle" href="#{next}">
+                                            <i class="fa fa-angle-double-down animated"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </f:then>
+            <f:else>
+                <section id="{node.identifier}" class="content-section text-center">
+                    <div class="content-background-image" style="background-image: url({media:uri.image(image:backgroundImage)});{f:if(condition:color, then: ' color:{color};')}">
+                        <div class="container">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <h2><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h2>
+                                <p><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </f:else>
+        </f:if>
+    </f:then>
+    <f:else>
+        <section id="{node.identifier}" class="content-section text-center">
+            <div class="content-background-image" style="{f:if(condition:backgroundColor, then: ' background:{backgroundColor};')};{f:if(condition:color, then: ' color:{color};')}">
+                <div class="container">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h2><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h2>
+                        <p><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </f:else>
+</f:if>

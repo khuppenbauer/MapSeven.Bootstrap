@@ -23,6 +23,10 @@ hr {
   max-width: 400px;
 }
 
+a:focus {
+  outline:none;
+}
+
 .brand,
 .address-bar {
   display: none;

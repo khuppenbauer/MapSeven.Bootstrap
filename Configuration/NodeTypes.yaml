@@ -15,19 +15,37 @@
         inspector:
           editorOptions:
             values:
-              'default':
-                label: 'Default'
-              'landingPage':
-                label: 'Landing page'
+              'grayscale':
+                label: 'Landing Page Grayscale'
+              'stylishPortfolio':
+                label: 'Landing Page Stylish Portfolio'
+              'businessCasual':
+                label: 'Content Page Business Casual'
     'subpageLayout':
       ui:
         inspector:
           editorOptions:
             values:
-              'default':
-                label: 'Default'
-              'landingPage':
-                label: 'Landing page'
+              'grayscale':
+                label: 'Landing Page Grayscale'
+              'stylishPortfolio':
+                label: 'Landing Page Stylish Portfolio'
+              'businessCasual':
+                label: 'Content Page Business Casual'
+    'color':
+      type: string
+      ui:
+        label: 'Color'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+    'backgroundColor':
+      type: string
+      ui:
+        label: 'Background Color'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
     'backgroundImage':
       type: TYPO3\Media\Domain\Model\ImageVariant
       ui:
@@ -37,20 +55,85 @@
           group: 'background'
 
 'MapSeven.Bootstrap:Section':
-  superTypes: ['TYPO3.Neos.NodeTypes:Column']
+  superTypes: ['TYPO3.Neos:Content']
   ui:
     label: 'Section (for Landing page)'
     group: 'structure'
+    icon: 'icon-columns'
     inspector:
       groups:
         'background':
           label: Background
           position: 900
-  childNodes:
-    column0:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
-    'layout': []
+    header:
+      type: string
+      defaultValue: 'Enter text here'
+      ui:
+        label: 'Header'
+        inlineEditable: TRUE
+        aloha:
+          'format':
+            'b': FALSE
+            'i': FALSE
+            'u': FALSE
+            'sub': FALSE
+            'sup': FALSE
+            'p': FALSE
+            'h1': FALSE
+            'h2': FALSE
+            'h3': FALSE
+            'pre': FALSE
+            'removeFormat': TRUE
+          'table':
+            'table': FALSE
+          'list':
+            'ol': FALSE
+            'ul': FALSE
+          'link':
+            'a': FALSE
+          'alignment':
+            'right': FALSE
+            'left': FALSE
+            'center': FALSE
+            'justify': FALSE
+            'top': FALSE
+            'middle': FALSE
+            'bottom': FALSE
+    subheader:
+      type: string
+      defaultValue: 'Enter text here'
+      ui:
+        label: 'Subheader'
+        inlineEditable: TRUE
+        aloha:
+          'format':
+            'b': FALSE
+            'i': FALSE
+            'u': FALSE
+            'sub': FALSE
+            'sup': FALSE
+            'p': FALSE
+            'h1': FALSE
+            'h2': FALSE
+            'h3': FALSE
+            'pre': FALSE
+            'removeFormat': TRUE
+          'table':
+            'table': FALSE
+          'list':
+            'ol': FALSE
+            'ul': FALSE
+          'link':
+            'a': FALSE
+          'alignment':
+            'right': FALSE
+            'left': FALSE
+            'center': FALSE
+            'justify': FALSE
+            'top': FALSE
+            'middle': FALSE
+            'bottom': FALSE
     'color':
       type: string
       ui:
@@ -58,17 +141,17 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'background'
-    'backgroundImage':
-      type: TYPO3\Media\Domain\Model\ImageVariant
-      ui:
-        label: 'Image'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'background'
     'backgroundColor':
       type: string
       ui:
         label: 'Background Color'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+    'backgroundImage':
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Image'
         reloadIfChanged: TRUE
         inspector:
           group: 'background'
@@ -309,6 +392,7 @@
   ui:
     label: 'Divider'
     group: 'general'
+    icon: 'icon-minus'
 
 'TYPO3.Neos.NodeTypes:Form':
   properties:

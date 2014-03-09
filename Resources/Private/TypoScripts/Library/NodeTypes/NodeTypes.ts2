@@ -2,11 +2,15 @@ prototype(TYPO3.Neos:ContentCollection) {
 	iterationName = 'sectionIteration'
 }
 
-prototype(MapSeven.Bootstrap:Section) {
-	attributes.class = ${'background-image' + (sectionIteration.isFirst ? ' header' : '')}
-	column0 = TYPO3.Neos:ContentCollection {
-		nodePath = 'column0'
-	}
+prototype(MapSeven.Bootstrap:Section) < prototype(TYPO3.Neos:Content) {
+	isFirst = ${(sectionIteration.isFirst ? 'intro' : '')}
+	templatePath = ${'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/Section' + q(site).property('layout') + '.html'}
+	header = ${q(node).property('header')}
+	subheader = ${q(node).property('subheader')}
+	backgroundImage = ${q(node).property('backgroundImage')}
+	background = ${q(node).property('background')}
+	color = ${q(node).property('color')}
+	next = ${q(node).next().property('_identifier')}
 }
 
 prototype(MapSeven.Bootstrap:Column) {

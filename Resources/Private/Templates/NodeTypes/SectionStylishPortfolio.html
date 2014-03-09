@@ -1,0 +1,41 @@
+{namespace media=TYPO3\Media\ViewHelpers}
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:if condition="{backgroundImage}">
+    <f:then>
+        <f:if condition="{isFirst}">
+            <f:then>
+                <div id="{node.identifier}" class="background-image header" style="background-image: url({media:uri.image(image:backgroundImage)});{f:if(condition:color, then: ' color:{color};')}">
+                    <div class="vert-text">
+                        <h1><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
+                        <h3><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></h3>
+                        <div class="page-scroll">
+                            <a class="btn btn-circle" href="#{next}">
+                                <i class="fa fa-angle-double-down animated"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </f:then>
+            <f:else>
+                <div id="{node.identifier}" class="background-image content" style="background-image: url({media:uri.image(image:backgroundImage)});{f:if(condition:color, then: ' color:{color};')}">
+                    <div class="vert-text">
+                        <h1><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
+                        <h3><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></h3>
+                    </div>
+                </div>
+            </f:else>
+        </f:if>
+    </f:then>
+    <f:else>
+        <div id="{node.identifier}" class="content" style="{f:if(condition:backgroundColor, then: ' background:{backgroundColor};')};{f:if(condition:color, then: ' color:{color};')}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <h2><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h2>
+                        <p class="lead"><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:else>
+</f:if>

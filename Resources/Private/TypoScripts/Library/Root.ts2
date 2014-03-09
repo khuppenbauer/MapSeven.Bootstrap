@@ -9,7 +9,11 @@ page = Page {
 		stylesheets {
 			site = TypoScript:Template {
 				templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/Page/Default.html'
-				sectionName = 'stylesheets.bootstrap-business-casual'
+				sectionName = 'stylesheets'
+			}
+			startbootstrap = TypoScript:Template {
+				templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/Page/Default.html'
+				sectionName = 'stylesheets.startbootstrap-business-casual'
 			}
 		}
 
@@ -26,7 +30,7 @@ page = Page {
 		parts {
 			mainMenu = Menu {
 				entryLevel = 1
-				templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/MainMenu.html'
+				templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/Menu/MainMenuBusinessCasual.html'
 				maximumLevels = 3
 				site = ${site}
 			}
@@ -44,6 +48,12 @@ page = Page {
 			sectionName = 'bodyScripts'
 		}
 	}
+
+	bodyTag {
+		attributes {
+			style = ${'background:' + q(node).property('backgroundColor') + '; color:' + q(node).property('color') + ';'}
+		}
+	}
 }
 
 backgroundImage = TypoScript:Template {
@@ -54,15 +64,40 @@ backgroundImage = TypoScript:Template {
 
 include: resource://MapSeven.Piwik/Private/TypoScripts/Library/Piwik.ts2
 
-default < page
-default.head.stylesheets {
-	backgroundImage < backgroundImage
+businessCasual < page
+businessCasual.head.stylesheets.backgroundImage < backgroundImage
+
+stylishPortfolio < page
+stylishPortfolio {
+	head.stylesheets.startbootstrap = TypoScript:Template {
+		sectionName = 'stylesheets.startbootstrap-stylish-portfolio'
+	}
+	body {
+		parts.mainMenu.templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/Menu/MainMenuStylishPortfolio.html'
+		javascripts.startbootstrap = TypoScript:Template {
+			templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/Page/Default.html'
+			sectionName = 'bodyScripts.startbootstrap-stylish-portfolio'
+		}
+	}
 }
 
-landingPage < page
-landingPage {
-	head.stylesheets.site.sectionName = 'stylesheets.bootstrap-stylish-portfolio'
+grayscale < page
+grayscale {
+	head.stylesheets.startbootstrap = TypoScript:Template {
+		sectionName = 'stylesheets.startbootstrap-grayscale'
+	}
 	body {
-		parts.mainMenu.templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/LandingPageMainMenu.html'
+		parts.mainMenu.templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/Menu/MainMenuGrayscale.html'
+		javascripts.startbootstrap = TypoScript:Template {
+			templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/Page/Default.html'
+			sectionName = 'bodyScripts.startbootstrap-grayscale'
+		}
+	}
+	bodyTag {
+		attributes {
+			id = 'page-top'
+			data-spy = 'scroll'
+			data-target = '.navbar-custom'
+		}
 	}
 }

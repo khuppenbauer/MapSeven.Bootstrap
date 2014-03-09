@@ -7,24 +7,29 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		</f:section>
 
-		<f:section name="stylesheets.bootstrap-business-casual">
+		<f:section name="stylesheets">
             <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
             <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap-business-casual.css', package: 'MapSeven.Bootstrap')}" media="all" />
             <link href="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
         </f:section>
 
-        <f:section name="stylesheets.bootstrap-stylish-portfolio">
-            <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-            <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <f:section name="stylesheets.startbootstrap-business-casual">
+            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap-business-casual.css', package: 'MapSeven.Bootstrap')}" media="all" />
+        </f:section>
+
+        <f:section name="stylesheets.startbootstrap-stylish-portfolio">
             <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap-stylish-portfolio.css', package: 'MapSeven.Bootstrap')}" media="all" />
-            <link href="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.css" rel="stylesheet">
+        </f:section>
+
+        <f:section name="stylesheets.startbootstrap-grayscale">
+            <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="{f:uri.resource(path: 'Styles/bootstrap-grayscale.css', package: 'MapSeven.Bootstrap')}" media="all" />
         </f:section>
 
 
 	</head>
 
-	<body>
+	<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
         <f:section name="body">
 
             {parts.mainMenu -> f:format.raw()}
@@ -64,52 +69,17 @@
         </f:section>
 
         <f:section name="bodyScripts">
-            <script src="{f:uri.resource(path: 'JavaScript/jquery-1.10.2.js', package: 'MapSeven.Bootstrap')}"></script>
-            <script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function ($) {
-
-                    // delegate calls to data-toggle="lightbox"
-                    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
-                        event.preventDefault();
-                        return $(this).ekkoLightbox({
-                            onShown: function() {
-                                if (window.console) {
-                                    return console.log('Checking our the events huh?');
-                                }
-                            }
-                        });
-                    });
-
-                    //Programatically call
-                    $('#open-image').click(function (e) {
-                        e.preventDefault();
-                        $(this).ekkoLightbox();
-                    });
-                    $('#open-youtube').click(function (e) {
-                        e.preventDefault();
-                        $(this).ekkoLightbox();
-                    });
-                });
-            </script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
             <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-            <script>
-                $("#menu-close").click(function(e) {
-                    e.preventDefault();
-                    $("#sidebar-wrapper").toggleClass("active");
-                });
-            </script>
-            <script>
-                $("#menu-toggle").click(function(e) {
-                    e.preventDefault();
-                    $("#sidebar-wrapper").toggleClass("active");
-                });
-            </script>
-            <script>
-                $(document).ready(function ($) {
-                    $('div.neos-contentcollection').contents().unwrap();
-                });
-            </script>
+            <script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
+            <script src="{f:uri.resource(path: 'JavaScript/lightbox.js', package: 'MapSeven.Bootstrap')}"></script>
+        </f:section>
+        <f:section name="bodyScripts.startbootstrap-grayscale">
+            <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+            <script src="{f:uri.resource(path: 'JavaScript/grayscale.js', package: 'MapSeven.Bootstrap')}"></script>
+        </f:section>
+        <f:section name="bodyScripts.startbootstrap-stylish-portfolio">
+            <script src="{f:uri.resource(path: 'JavaScript/stylishPortfolio.js', package: 'MapSeven.Bootstrap')}"></script>
         </f:section>
     </body>
 </html>
