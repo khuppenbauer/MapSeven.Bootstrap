@@ -4,7 +4,7 @@ prototype(TYPO3.Neos:ContentCollection) {
 
 prototype(MapSeven.Bootstrap:Section) < prototype(TYPO3.Neos:Content) {
 	isFirst = ${(sectionIteration.isFirst ? 'intro' : '')}
-	layout = ${q(documentNode).property('layout') != null && q(documentNode).property('layout') != '' ? q(documentNode).property('layout') : q(documentNode).parents('[subpageLayout]').first().property('subpageLayout')}
+	layout = ${q(documentNode).property('layout') != null && q(documentNode).property('layout') != '' ? String.firstLetterToUpperCase(q(documentNode).property('layout')) : q(documentNode).parents('[subpageLayout]').first().property('subpageLayout')}
 	templatePath = ${'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/Section' + this.layout + '.html'}
 	header = ${q(node).property('header')}
 	subheader = ${q(node).property('subheader')}
