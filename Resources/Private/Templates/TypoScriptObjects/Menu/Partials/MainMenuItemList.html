@@ -1,0 +1,14 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:for each="{items}" as="item" iteration="menuItemIterator">
+    <li class="{item.state}{f:if(condition: item.subItems, then: ' dropdown')}">
+        <f:if condition="{item.subItems}">
+            <f:then><a href="{neos:uri.node(node:item.node)}">{item.label} <span><i class="fa fa-caret-down fa-1x"></i></span></a></f:then>
+            <f:else><neos:link.node node="{item.node}">{item.label}</neos:link.node></f:else>
+        </f:if>
+        <f:if condition="{item.subItems}">
+            <ul class="dropdown-menu" role="menu">
+                <f:render partial="MainMenuItemList" arguments="{items: item.subItems}" />
+            </ul>
+        </f:if>
+    </li>
+</f:for>

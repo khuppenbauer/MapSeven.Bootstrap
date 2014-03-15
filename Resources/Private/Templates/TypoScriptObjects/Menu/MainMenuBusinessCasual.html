@@ -3,28 +3,21 @@
 <h3 class="subheader">TYPO3 | TYPO3 Flow | TYPO3 Neos</h3>
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
-        <f:render section="itemList" arguments="{items: items, site: site}" />
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{neos:uri.node(node: site)}">MapSeven</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <f:render partial="MainMenuItemList" arguments="{items: items, site: site}" />
+            </ul>
+        </div>
+
    </div>
 </nav>
-
-<f:section name="itemList">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="{neos:uri.node(node: site)}">MapSeven</a>
-    </div>
-
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <f:for each="{items}" as="item" iteration="menuItemIterator">
-                <li class="{item.state}">
-                    <neos:link.node node="{item.node}">{item.label}</neos:link.node>
-                </li>
-            </f:for>
-        </ul>
-    </div>
-</f:section>

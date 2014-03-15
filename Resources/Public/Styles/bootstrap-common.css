@@ -35,6 +35,10 @@ footer a, footer a:hover, footer a:focus {
     color: #000;
 }
 
+.navbar-nav li.dropdown span {
+    padding:10px 200px 10px 20px;
+}
+
 @media screen and (min-width: 768px) {
     h1.header {
         display: inherit;
@@ -64,6 +68,19 @@ footer a, footer a:hover, footer a:focus {
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         text-transform: none;
     }
+
+    ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+    }
+
+    .navbar-nav li.dropdown span {
+        display:none;
+    }
+
+    .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+        background-color: inherit;
+    }
+
 }
 
 .btn {

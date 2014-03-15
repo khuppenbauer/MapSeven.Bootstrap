@@ -9,22 +9,12 @@
                 <i class="fa fa-play-circle"></i>  <span class="light">MapSeven</span>
             </a>
         </div>
-
-        <f:render section="itemList" arguments="{items: items, site: site}" />
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <f:render partial="MainMenuItemList" arguments="{items: items, site: site}" />
+            </ul>
+        </div>
     </div>
     <!-- /.container -->
 </nav>
-
-<f:section name="itemList">
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-        <ul class="nav navbar-nav">
-            <f:for each="{items}" as="item" iteration="menuItemIterator">
-                <li class="page-scroll {item.state}">
-                    <neos:link.node node="{item.node}">{item.label}</neos:link.node>
-                </li>
-            </f:for>
-        </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-</f:section>

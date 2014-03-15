@@ -1,17 +1,9 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
-<f:render section="itemList" arguments="{items: items, site: site}" />
-
-<f:section name="itemList">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand"><a class="navbar-brand" href="{neos:uri.node(node: site)}">MapSeven</a></li>
-            <f:for each="{items}" as="item" iteration="menuItemIterator">
-                <li class="{item.state}">
-                    <neos:link.node node="{item.node}">{item.label}</neos:link.node>
-                </li>
-            </f:for>
-        </ul>
-    </div>
-</f:section>
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand"><a class="navbar-brand" href="{neos:uri.node(node: site)}">MapSeven</a></li>
+        <f:render partial="MainMenuItemList" arguments="{items: items, site: site}" />
+    </ul>
+</div>

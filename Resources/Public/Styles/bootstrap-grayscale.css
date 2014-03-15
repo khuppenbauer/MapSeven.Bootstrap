@@ -30,6 +30,11 @@ a:focus {
     outline:none;
 }
 
+.light {
+    font-weight: 400;
+    text-transform: none;
+}
+
 .navbar {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
@@ -58,7 +63,8 @@ a:focus {
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus,
-.navbar-custom .nav li.active {
+.navbar-custom .nav li.active,
+.navbar-custom .nav li.current{
     outline: 0;
     background-color: rgba(255,255,255,.2);
 }
@@ -72,6 +78,21 @@ a:focus {
 .navbar-toggle:focus,
 .navbar-toggle:active {
     outline: 0;
+}
+
+.dropdown-menu {
+    padding: 0px;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+        background-color: #fff;
+    }
+    .navbar-nav .open .dropdown-menu a:hover {
+        outline: 0;
+        color: #fff;
+        background-color: rgba(0,0,0,.2);
+    }
 }
 
 @media(min-width:767px) {
