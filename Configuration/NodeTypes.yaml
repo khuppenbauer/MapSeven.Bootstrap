@@ -405,6 +405,34 @@
               'Contact':
                 label: 'Contact form'
 
+'MapSeven.Bootstrap:Gist':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    label: 'Gist'
+    group: 'general'
+    icon: 'icon-github-alt'
+    inspector:
+      groups:
+        'gist':
+          label: 'Gist'
+  properties:
+    'id':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'id'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'gist'
+    'file':
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'file'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'gist'
+
 'TYPO3.Neos.NodeTypes:Headline':
   abstract: TRUE
 

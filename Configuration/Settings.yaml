@@ -22,3 +22,8 @@ TYPO3:
           'TYPO3.Form:MultiLineText':
             properties:
               elementClassAttribute: 'form-control'
+
+MapSeven:
+  Bootstrap:
+    gist:
+      uri: 'https://gist.github.com'

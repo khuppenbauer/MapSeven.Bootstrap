@@ -112,6 +112,10 @@ prototype(TYPO3.Neos.NodeTypes:Headline) {
 	templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/NodeTypes/Headline.html'
 }
 
+prototype(MapSeven.Bootstrap:Gist) {
+	settings = ${Configuration.setting('MapSeven.Bootstrap')}
+}
+
 ##
 # Set the default preset for the "Form" element
 #
