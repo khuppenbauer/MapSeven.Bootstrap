@@ -9,10 +9,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <h1 class="brand-heading"><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
-                                    <p class="intro-text"><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></p>
+                                    <h1 class="header"><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
+                                    <h3 class="subheader"><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></h3>
                                     <div class="page-scroll">
-                                        <a class="btn btn-circle" href="#{next}">
+                                        <a class="btn btn-circle" href="#{next}" {f:if(condition:color, then: 'style=" color:{color}; border-color:{color};"')}>
                                             <i class="fa fa-angle-double-down animated"></i>
                                         </a>
                                     </div>
@@ -38,7 +38,7 @@
     </f:then>
     <f:else>
         <section id="{node.identifier}" class="content-section text-center">
-            <div class="content-background-image" style="{f:if(condition:backgroundColor, then: ' background:{backgroundColor};')};{f:if(condition:color, then: ' color:{color};')}">
+            <div class="content-background-image" style="{f:if(condition:backgroundColor, then: ' background-color:{backgroundColor};')};{f:if(condition:color, then: ' color:{color};')}">
                 <div class="container">
                     <div class="col-lg-8 col-lg-offset-2">
                         <h2><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h2>

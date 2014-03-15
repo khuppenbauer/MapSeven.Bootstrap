@@ -1,8 +1,28 @@
 {namespace media=TYPO3\Media\ViewHelpers}
 <style>
     body {
-        <f:if condition="{backgroundImage}">background: url({media:uri.image(image:backgroundImage)}) no-repeat center center fixed;</f:if>
+        <f:if condition="{backgroundImage}">background-image: url({media:uri.image(image:backgroundImage)});</f:if>
         <f:if condition="{backgroundColor}">background-color:{backgroundColor};</f:if>
         <f:if condition="{color}">color:{color};</f:if>
     }
+    <f:if condition="{backgroundColor}">
+    footer <![CDATA[{]]>
+        background-color:{backgroundColor};
+    }
+    </f:if>
+    <f:if condition="{color}">
+    footer a, footer a:hover, footer a:focus <![CDATA[{]]>
+        color:{color};
+    }
+
+    .btn-circle <![CDATA[{]]>
+        color:{color};
+        border-color:{color};
+    }
+
+    .btn-circle:hover,
+    .btn-circle:focus <![CDATA[{]]>
+        color:{color};
+    }
+    </f:if>
 </style>

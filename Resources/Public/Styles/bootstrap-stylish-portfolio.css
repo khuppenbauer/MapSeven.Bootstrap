@@ -12,17 +12,6 @@ body {
   text-align: center;
 }
 
-.vert-text h1 {
-  padding: 0;
-  margin: 0;
-  font-size: 4.5em;
-  font-weight: 700;
-}
-
-a:focus {
-  outline:none;
-}
-
 /* Side Menu */
 
 #sidebar-wrapper {
@@ -120,49 +109,9 @@ a:focus {
   background-size: cover;
 }
 
-.header {
+.intro {
   height: 100%;
   position: relative;
-}
-
-.btn-circle {
-    width: 70px;
-    height: 70px;
-    margin-top: 15px;
-    padding: 7px 16px;
-    border: 2px solid #fff;
-    border-radius: 35px;
-    font-size: 40px;
-    color: #fff;
-    background: 0 0;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-}
-
-.btn-circle:hover,
-.btn-circle:focus {
-    outline: 0;
-    color: #fff;
-    background: rgba(255,255,255,.1);
-}
-
-.page-scroll .btn-circle i.animated {
-    -webkit-transition-property: -webkit-transform;
-    -webkit-transition-duration: 1s;
-    -moz-transition-property: -moz-transform;
-    -moz-transition-duration: 1s;
-}
-
-.page-scroll .btn-circle:hover i.animated {
-    -webkit-animation-name: pulse;
-    -moz-animation-name: pulse;
-    -webkit-animation-duration: 1.5s;
-    -moz-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
 }
 
 /* Intro */
@@ -171,38 +120,19 @@ a:focus {
   padding: 50px 0;
 }
 
-/* Footer */
-
-footer {
-  padding: 100px 0;
-}
-
-footer a, footer a:hover, footer a:focus {
-    color: #000;
-}
-
-.top-scroll {
-  margin-top: 50px;
-}
-
-.top-scroll a {
-  text-decoration: none;
-  color: inherit;
-}
-
-i.scroll {
-  color: #333333;
-}
-
-i.scroll:hover {
-  color: #0a5175;
-}
 /* Responsive */
 
 @media (max-width: 768px) {
 
   .background-image {
-	background: no-repeat center center scroll;
+    background: no-repeat center center scroll;
   }
 
+}
+
+@media screen and (min-width: 768px) {
+  h1.header,
+  h3.subheader {
+    display: block;
+  }
 }

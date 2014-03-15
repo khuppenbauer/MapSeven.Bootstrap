@@ -4,12 +4,12 @@
     <f:then>
         <f:if condition="{isFirst}">
             <f:then>
-                <div id="{node.identifier}" class="background-image header" style="background-image: url({media:uri.image(image:backgroundImage)});{f:if(condition:color, then: ' color:{color};')}">
+                <div id="{node.identifier}" class="background-image intro" style="background-image: url({media:uri.image(image:backgroundImage)});{f:if(condition:color, then: ' color:{color};')}">
                     <div class="vert-text">
-                        <h1><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
-                        <h3><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></h3>
+                        <h1 class="header"><neos:contentElement.editable property="header">{header -> f:format.raw()}</neos:contentElement.editable></h1>
+                        <h3 class="subheader"><neos:contentElement.editable property="subheader">{subheader -> f:format.raw()}</neos:contentElement.editable></h3>
                         <div class="page-scroll">
-                            <a class="btn btn-circle" href="#{next}">
+                            <a class="btn btn-circle" href="#{next}" {f:if(condition:color, then: 'style=" color:{color}; border-color:{color};"')}>
                                 <i class="fa fa-angle-double-down animated"></i>
                             </a>
                         </div>
@@ -27,7 +27,7 @@
         </f:if>
     </f:then>
     <f:else>
-        <div id="{node.identifier}" class="content" style="{f:if(condition:backgroundColor, then: ' background:{backgroundColor};')};{f:if(condition:color, then: ' color:{color};')}">
+        <div id="{node.identifier}" class="content" style="{f:if(condition:backgroundColor, then: ' background-color:{backgroundColor};')};{f:if(condition:color, then: ' color:{color};')}">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3 text-center">
