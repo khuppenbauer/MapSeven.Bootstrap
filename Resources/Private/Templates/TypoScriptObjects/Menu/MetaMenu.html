@@ -1,0 +1,11 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<ul class="list-inline">
+    <f:for each="{items}" as="item" iteration="menuItemIterator">
+        <li class="{item.state}"><neos:link.node node="{item.node}">{item.label}</neos:link.node></li>
+        <f:if condition="{menuItemIterator.isLast}">
+            <f:else>
+                <li class="footer-menu-divider">&sdot;</li>
+            </f:else>
+        </f:if>
+    </f:for>
+</ul>

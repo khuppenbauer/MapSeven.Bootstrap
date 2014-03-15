@@ -5,6 +5,7 @@
         <f:if condition="{backgroundColor}">background-color:{backgroundColor};</f:if>
         <f:if condition="{color}">color:{color};</f:if>
     }
+    <f:if condition="{footer}">
     <f:if condition="{backgroundColor}">
     footer <![CDATA[{]]>
         background-color:{backgroundColor};
@@ -14,7 +15,9 @@
     footer a, footer a:hover, footer a:focus <![CDATA[{]]>
         color:{color};
     }
-
+    </f:if>
+    </f:if>
+    <f:if condition="{color}">
     .btn-circle <![CDATA[{]]>
         color:{color};
         border-color:{color};

@@ -40,6 +40,12 @@ page = Page {
 				maximumLevels = 3
 				site = ${site}
 			}
+			metaMenu = Menu {
+				entryLevel = 2
+				templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/Menu/MetaMenu.html'
+				maximumLevels = 1
+				startingPoint = ${q(site).children('meta').get(0)}
+			}
 		}
 
 		content {
@@ -65,6 +71,7 @@ stylishPortfolio {
 	head.stylesheets.startbootstrap = TypoScript:Template {
 		sectionName = 'stylesheets.startbootstrap-stylish-portfolio'
 	}
+	head.stylesheets.inlineBodyStyles.footer = true
 	body {
 		parts.mainMenu.templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/Menu/MainMenuStylishPortfolio.html'
 		javascripts.startbootstrap = TypoScript:Template {
@@ -79,6 +86,7 @@ grayscale {
 	head.stylesheets.startbootstrap = TypoScript:Template {
 		sectionName = 'stylesheets.startbootstrap-grayscale'
 	}
+	head.stylesheets.inlineBodyStyles.footer = true
 	body {
 		parts.mainMenu.templatePath = 'resource://MapSeven.Bootstrap/Private/Templates/TypoScriptObjects/Menu/MainMenuGrayscale.html'
 		javascripts.startbootstrap = TypoScript:Template {

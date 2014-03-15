@@ -50,13 +50,7 @@
                                 </li>
                             </ul>
                             <hr>
-                            <ul class="list-inline">
-                                <li><neos:link.node node="/sites/bootstrap">Home</neos:link.node></li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li><neos:link.node node="~/meta/kontakt">Kontakt</neos:link.node></li>
-                                <li class="footer-menu-divider">&sdot;</li>
-                                <li><neos:link.node node="~/meta/impressum">Impressum</neos:link.node></li>
-                            </ul>
+                            {parts.metaMenu -> f:format.raw()}
                         </div>
                     </div>
                 </div>
